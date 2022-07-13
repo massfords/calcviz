@@ -16,7 +16,7 @@ public class CalculatorVisitor extends BaseVisitor<Literal,CalcException> {
     /**
      * maintains our state as we traverse the graph
      */
-    private Stack<Literal> stack = new Stack<>();
+    private final Stack<Literal> stack = new Stack<>();
 
     /**
      * values to use for variables
@@ -127,14 +127,14 @@ public class CalculatorVisitor extends BaseVisitor<Literal,CalcException> {
         Literal left = pop();
         
         // the left is our loop and it should be an integer
-        Double d = left.getValue();
+        double d = left.getValue();
         double value;
         if (d == 0) {
             value = 1;
         } else {
             double base = right.getValue();
             value = base;
-            int count = d.intValue();
+            int count = (int) d;
             for(int i=0; i<count-1; i++) {
                 value = Math.pow(base, value);
             }
@@ -198,7 +198,8 @@ public class CalculatorVisitor extends BaseVisitor<Literal,CalcException> {
      * @param d
      */
     private Literal push(double d) {
-        Literal lit = new Literal().withValue(d);
+        Literal lit = new Literal();
+        lit.setValue(d);
         stack.push(lit);
         return lit;
     }

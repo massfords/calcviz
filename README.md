@@ -1,5 +1,4 @@
-calcviz
--------
+# calcviz
 
 The calcviz project is an example of how to use the jaxb-visitor plugin. The schema defines 
 simple binary and unary math operations and enables the construction of an 
@@ -19,11 +18,11 @@ simplification, partial evaluation, etc.
 
 The table below lists the visitors that are implemented in the calcviz project: 
 
-| Visitor | Description   | 
-| ------------- | :-------------:| 
-| CalculatorVisitor | Evaluates the expression | 
-| ExpressionSerializerVisitor | Serializes the graph to a string. | 
-| PartialEvaluatorVisitor | Transforms the graph by evaluating any of the operations that contain literal arguments. | 
+| Visitor                     |                                       Description                                        | 
+|-----------------------------|:----------------------------------------------------------------------------------------:|
+| CalculatorVisitor           |                                 Evaluates the expression                                 | 
+| ExpressionSerializerVisitor |                            Serializes the graph to a string.                             | 
+| PartialEvaluatorVisitor     | Transforms the graph by evaluating any of the operations that contain literal arguments. | 
 
 ### Results
 
@@ -34,11 +33,11 @@ and is designed to run multiple times until the graph is in its simplest form.
 In a sense it performs a step by step evaluation which may help illustrate how 
 the expression is evaluated.
 
-| Visitor | Output | 
-| ------------- | :-------------:| 
-| CalculatorVisitor	| 13.0 | 
+| Visitor                      |                Output                | 
+|------------------------------|:------------------------------------:|
+| CalculatorVisitor	           |                 13.0                 | 
 | ExpressionSerializerVisitor	 | ((4.0 * 2.0) + (10.0 / (4.0 - 2.0))) | 
-| PartialEvaluatorVisitor	 | modified graph as shown below | 
+| PartialEvaluatorVisitor	     |    modified graph as shown below     | 
 
 ### PartialEvaluatorVisitor Output	
 

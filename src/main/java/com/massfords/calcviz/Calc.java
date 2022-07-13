@@ -17,7 +17,7 @@ public class Calc {
      * @return result of the evaluation
      */
     public static double calc(Eval eval) throws CalcException {
-        return calc(eval, Collections.<String,Double>emptyMap());
+        return calc(eval, Collections.emptyMap());
     }
 
     /**
@@ -28,7 +28,7 @@ public class Calc {
     public static double calc(Eval eval, Map<String,Double> variables) throws CalcException {
         CalculatorVisitor calcviz = new CalculatorVisitor(variables);
         TraversingVisitor<Literal,CalcException> tv = new TraversingVisitor<>(
-                new DepthFirstTraverserImpl<CalcException>(), calcviz);
+                new DepthFirstTraverserImpl<>(), calcviz);
         tv.setTraverseFirst(true);
         eval.accept(tv);
         return calcviz.getResult();

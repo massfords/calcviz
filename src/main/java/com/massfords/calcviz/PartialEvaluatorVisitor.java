@@ -19,7 +19,7 @@ public class PartialEvaluatorVisitor extends BaseVisitor<Literal,CalcException> 
      * Used to evaluate each of the operations
      */
     private final CalculatorVisitor calculatorVisitor = new CalculatorVisitor(
-            Collections.<String,Double>emptyMap());
+            Collections.emptyMap());
 
     /**
      * Kicks off the visitor
